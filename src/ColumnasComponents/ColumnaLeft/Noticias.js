@@ -1,12 +1,20 @@
 import React from 'react';
-import { useEffect,useState } from 'react';
+import { useEffect,useState,useRef } from 'react';
 import axios from "axios";
 import {Card,Button} from "react-bootstrap";
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Container,Nav,Link  } from 'react-bootstrap';
+
+import './ColumnaLeft.css';
 export default function Noticias() {
 
     //ESTADOS
     const [datosNoticias,setdatosNoticias]=useState([]);
-    const [category,setCategory]=useState();
+    const [category,setCategory]=useState('Nacionales');
+    const Titulo=useRef();
+    const Menu=useRef();
+
     //CUANDO SE MONTE EL COMPONENTE
     useEffect(async()=>{
       try {
@@ -24,15 +32,51 @@ export default function Noticias() {
     //CUANDO SE ACTUALICE EL ESTADO DE CATEGORIA
     useEffect(async()=>{
 
+      const Peticion= await axios.get(`https://newsapi.org/v2/top-headlines?&apiKey=cb2f0131b47344ebbc4af40883070deb`);
 
-
-
+      setdatosNoticias(Peticion.data);
 
     },[category]);
 
+   const handleChangeTitle=(e)=>{
+
+        if (e=="Titulo") {
+
+          Menu.current.className="d-none";
+      
+           Titulo.current.className="text-white"
+        }
+      
+        else if(e=='Menu'){
+
+          Menu.current.className="";
+      
+          Titulo.current.className="d-none"
+
+
+        }
+
+    
+   }
+
+
+
     return (
         <div  align="center">
-              <h1 className='text-white '>NOTICIAS</h1>
+              <h1 className='text-white' ref={Titulo} onMouseEnter={()=>handleChangeTitle('Menu')}>NOTICIAS</h1>
+
+     <div className='d-none' ref={Menu} onMouseOut={()=>handleChangeTitle('Titulo')}>     
+<Navbar   >
+    <Container   >
+    <Nav className="me-auto" onMouseEnter={()=>handleChangeTitle('Menu')}>
+    <Nav.Link onClick={e=>setCategory('Nacionales')}  onMouseEnter={()=>handleChangeTitle('Menu')} style={{ color:"blanchedalmond", "font-weight":"bold"}}  href="#home" >Nacionales</Nav.Link>
+      <Nav.Link onClick={e=>setCategory('Economia')}  onMouseEnter={()=>handleChangeTitle('Menu')} style={{ color:"blanchedalmond", "font-weight":"bold"}} href="#home">Economia</Nav.Link>
+      <Nav.Link onClick={e=>setCategory('Tecnologia')} onMouseEnter={()=>handleChangeTitle('Menu')} style={{ color:"blanchedalmond", "font-weight":"bold"}} href="#features">Tecnologia</Nav.Link>
+      <Nav.Link onClick={e=>setCategory('Deportes')} onMouseEnter={()=>handleChangeTitle('Menu')} style={{ color:"blanchedalmond", "font-weight":"bold"}} href="#pricing">Deportes</Nav.Link>
+    </Nav>
+    </Container>
+  </Navbar>
+  </div>   
 
             <div className='scroll'>
            {
