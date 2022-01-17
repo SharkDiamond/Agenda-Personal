@@ -14,7 +14,6 @@ export default function Noticias() {
     //REFERENCIAS
     const Titulo=useRef();
     const Menu=useRef();
-
     //CUANDO SE MONTE EL COMPONENTE
     useEffect(async()=>{
       try {
@@ -81,7 +80,7 @@ export default function Noticias() {
      <div className='d-none' ref={Menu} onMouseOut={()=>handleChangeTitle('Titulo')}>     
 <Navbar className='animado'>
     <Container >
-    <Nav className="me-auto" >
+    <Nav className="me-auto letraSize" >
     <Nav.Link onClick={e=>setCategory('Nacionales')}  onMouseEnter={()=>handleChangeTitle('Menu')} style={{ color:"blanchedalmond", "font-weight":"bold"}}  href="#home" >Nacionales</Nav.Link>
       <Nav.Link onClick={e=>setCategory('Fortune')}  onMouseEnter={()=>handleChangeTitle('Menu')} style={{ color:"blanchedalmond", "font-weight":"bold"}} href="#home">Economia</Nav.Link>
       <Nav.Link onClick={e=>setCategory('ars-technica')} onMouseEnter={()=>handleChangeTitle('Menu')} style={{ color:"blanchedalmond", "font-weight":"bold"}} href="#features">Tecnologia</Nav.Link>
@@ -93,7 +92,7 @@ export default function Noticias() {
 
             <div className='scroll'>
            {
-    datosNoticias.map(element => 
+            datosNoticias.map(element => 
         <Card style={{ width: '100%'}} className='mb-2 prueba '>
         <Card.Img variant="top" src={element.urlToImage} />
         <Card.Body>
@@ -103,8 +102,8 @@ export default function Noticias() {
         </Card.Body>
       </Card>
       
-    )
-} 
+             )
+          } 
 </div>
 
 

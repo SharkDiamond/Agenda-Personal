@@ -10,7 +10,6 @@ import Noticias from './ColumnasComponents/ColumnaLeft/Noticias';
 function App() {
   return (
    
-     
     <Container className='p-3 bg-dark ' fluid={true}>
     {/* FILA BARRA*/}
     <Row className='rounded-top barra '>
@@ -24,7 +23,7 @@ function App() {
     {/* FILA CONTENIDO*/}
     <Row className='filaContenido rounded-bottom'>
     {/* PRIMERA COLUMNA DE CONTENIDO  */}
-    <Col className=' ' xs lg="4">
+    <Col className=' ' xs="12" md="6" lg="4">
     
     {/* CALENDARIO*/}
     <Col className=' p-3 ' xs lg="12">
@@ -40,17 +39,12 @@ function App() {
 
       
       </Col>
-
-
     {/* SEGUNDA COLUMNA DE CONTENIDO  */}
-    <Col className="p-4 border"><h1 className='text-white'>Columna 2</h1></Col>
+    <Col className="p-4 border"  xs="12" md="6" lg="4"><h1 className='text-white'>Columna 2</h1></Col>
     {/* TERCERA  COLUMNA DE CONTENIDO  */}
     <Col className='border'><h1 className='text-white'>Columna 3</h1></Col>
 
     </Row>
-
-
-
 
     </Container>
 
