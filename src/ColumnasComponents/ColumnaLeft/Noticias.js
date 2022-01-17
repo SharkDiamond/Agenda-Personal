@@ -1,10 +1,11 @@
-import React from 'react';
+import {React,useContext} from 'react';
 import { useEffect,useState,useRef } from 'react';
 import axios from "axios";
 import {Card,Button} from "react-bootstrap";
 import Navbar from 'react-bootstrap/Navbar';
 import { Container,Nav,Link  } from 'react-bootstrap';
 import './CL.css'
+import themas from '../../Contexto/Temas.js/ContextThema';
 
 export default function Noticias() {
 
@@ -14,6 +15,8 @@ export default function Noticias() {
     //REFERENCIAS
     const Titulo=useRef();
     const Menu=useRef();
+    //IMPORTANDO EL TEMA DEL ESTADO GLOBAL
+    const {tema,setTema}=useContext(themas);
     //CUANDO SE MONTE EL COMPONENTE
     useEffect(async()=>{
       try {
@@ -51,7 +54,7 @@ export default function Noticias() {
       }
 
     },[category]);
-
+    
    const handleChangeTitle=(e)=>{
 
         if (e=="Titulo") {
@@ -90,15 +93,16 @@ export default function Noticias() {
   </Navbar>
      </div>   
 
-            <div className='scroll'>
+            <div className='scroll '>
            {
             datosNoticias.map(element => 
         <Card style={{ width: '100%'}} className='mb-2 prueba '>
         <Card.Img variant="top" src={element.urlToImage} />
-        <Card.Body>
+        <Card.Body className={tema}>
           <Card.Title>{element.title}</Card.Title>
           <Card.Text>{element.description}</Card.Text>
           <Button variant="primary" href={element.url} target="_blank">Leer Mas</Button>
+          <Button onClick={()=>setTema("bg-danger ")}>CHANGE</Button>
         </Card.Body>
       </Card>
       
