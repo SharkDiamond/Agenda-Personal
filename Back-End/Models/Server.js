@@ -27,19 +27,13 @@ class Server {
         this.app.use(cors());
         
 
-
     }
 
     routes(){
-
-        this.app.use('/',(req,res)=>{
-
-            res.json("SET").end();
-                console.log("LLEGO");
-
-
-        });
-
+        //RUTA PARA LAS NOTAS
+        this.app.use('/Note',require('../Route/Notas'));
+        //RUTA PARA LOS USUARIOS
+        this.app.use('/User',require("../Route/Usuarios"));
 
     }
 

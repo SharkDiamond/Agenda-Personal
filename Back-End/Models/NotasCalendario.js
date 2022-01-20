@@ -1,7 +1,7 @@
 const {Schema,model}=require("mongoose");
 
-const notasSchema=Schema({
-
+const notasSchema=new Schema({
+   
     Fecha:{
 
         type:Date,
@@ -16,10 +16,10 @@ const notasSchema=Schema({
     },
     UsuarioAsignado:{
 
-        ref:"Usuario",
         type:Schema.Types.ObjectId,
+        ref:"Usuario",
         require:true
-
+        
     }
 
 });
