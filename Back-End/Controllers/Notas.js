@@ -38,7 +38,7 @@ const getNotes=async(req,res)=>{
         const notas=await Nota.find(condition);
         //EN DADO CASO NO HAYA NOTAS
         if (notas.length==0) return res.json("No hay notas para esa fecha").end();
-
+        
         res.json(notas).end();
 
     } catch (error) {
