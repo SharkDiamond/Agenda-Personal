@@ -3,7 +3,7 @@ const Usuario=require('../Models/Usuarios');
 
 const verificaToken=async(req,res,next)=>{
     //RECOGIENDO EL TOKEN DE LOS HEADERS
-    const tokenPeticion=req.headers('acceso');
+    const tokenPeticion=req.header('acceso');
     //VALIDANDO SI EL TOKEN VIENE
     if (!tokenPeticion) return res.status(400).json("No viene token en la peticion").end();
 

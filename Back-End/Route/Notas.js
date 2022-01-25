@@ -15,7 +15,7 @@ route.delete('/DeleteNote',[verificaToken,check("id","El id enviado no es valido
 //ACTUALIZAR NOTA
 route.put('/UpdateNote',[verificaToken,check("id","El id enviado no es valido!").isMongoId(),validationExpress],()=>{});
 //OBTENER NOTAS
-route.get('/getNotes',[verificaToken.check('Fecha','La fecha enviada no es valido!').isDate(),validationExpress],getNotes);
+route.get('/getNotes',[verificaToken,check('Fecha','La fecha enviada no es valido!').isDate(),validationExpress],getNotes);
 
 
 module.exports=route;
