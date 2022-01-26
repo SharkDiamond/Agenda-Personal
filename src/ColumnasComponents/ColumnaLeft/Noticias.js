@@ -1,11 +1,9 @@
-import {React,useContext} from 'react';
-import { useEffect,useState,useRef } from 'react';
-import axios from "axios";
-import {Card,Button} from "react-bootstrap";
-import Navbar from 'react-bootstrap/Navbar';
-import { Container,Nav,Link  } from 'react-bootstrap';
-import './CL.css'
+import {React,useContext,useEffect,useState,useRef} from 'react';
 import themas from '../../Contexto/Temas.js/ContextThema';
+import axios from "axios";
+import {Card,Button,Container,Nav,Navbar} from "react-bootstrap";
+
+import './CL.css';
 
 export default function Noticias() {
 
@@ -77,7 +75,7 @@ export default function Noticias() {
    }
 
     return (
-        <div  align="center">
+        <div align="center">
               <h1 className='text-white ' ref={Titulo} onMouseEnter={()=>handleChangeTitle('Menu')}>NOTICIAS</h1>
 
      <div className='d-none' ref={Menu} onMouseOut={()=>handleChangeTitle('Titulo')}>     
@@ -114,3 +112,7 @@ export default function Noticias() {
         </div>
     )
 }
+
+
+
+
