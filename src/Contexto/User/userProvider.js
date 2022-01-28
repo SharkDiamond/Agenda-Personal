@@ -3,8 +3,8 @@ import usermanage from './userContext';
 
 
 export default function Userprovider(props) {
-  //const UM=useContext(UserManage);
-   const [usuario,setUsuario]=useState(null);
+  
+   const [usuario,setUsuario]=useState(null || sessionStorage.getItem('user'));
     //MANAGE DATA USER
     const valueUser={
 
