@@ -1,6 +1,6 @@
-import React,{useState,useContext} from 'react';
+//IMPORTACIONES
+import React,{useState} from 'react';
 import usermanage from './userContext';
-
 
 export default function Userprovider(props) {
   
@@ -12,7 +12,7 @@ export default function Userprovider(props) {
             //GUARDANDO EL TOKEN EN EL SESION STORAGE
             sessionStorage.setItem('acceso',token);
             //ACTUALIZANDO EL ESTADO DEL USUARIO
-          setUsuario(user);
+            setUsuario(user);
 
         },
         logout:()=>{

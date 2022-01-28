@@ -55,14 +55,14 @@ export default function Noticias() {
     
    const handleChangeTitle=(e)=>{
 
-        if (e=="Titulo") {
+        if (e==="Titulo") {
 
           Menu.current.className="d-none";
       
            Titulo.current.className="text-white"
         }
       
-        else if(e=='Menu'){
+        else if(e==='Menu'){
 
           Menu.current.className="";
       
