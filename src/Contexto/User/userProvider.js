@@ -1,18 +1,31 @@
 //IMPORTACIONES
-import React,{useState} from 'react';
+import React,{useRef,useState} from 'react';
 import usermanage from './userContext';
 
 export default function Userprovider(props) {
   
-   const [usuario,setUsuario]=useState(null || sessionStorage.getItem('user'));
+  
+  const usernameUnico=useRef();
+
+  let tokens=sessionStorage.getItem('acceso');
+
+  const [usuario,setUsuario]=useState(null || sessionStorage.getItem(tokens));
+  
     //MANAGE DATA USER
     const valueUser={
 
-        login:(user,token)=>{
+        login:(user,token,userUnc)=>{
+            
+          usernameUnico.current=userUnc;
             //GUARDANDO EL TOKEN EN EL SESION STORAGE
             sessionStorage.setItem('acceso',token);
             //ACTUALIZANDO EL ESTADO DEL USUARIO
+
+            sessionStorage.setItem(""+usernameUnico.current,user);
+
             setUsuario(user);
+
+
 
         },
         logout:()=>{

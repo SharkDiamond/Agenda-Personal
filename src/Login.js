@@ -2,28 +2,38 @@
 import React, { useContext, useState } from 'react';
 import {Container,Row,Col,Form } from "react-bootstrap";
 import usermanage from './Contexto/User/userContext';
+import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import "./App.css"
-
+import ipPeticiones from './Ip';
 export default function Login() {
 
   //ESTADOS
-  const [user,setUser]=useState('');
+  const [username,setUser]=useState('');
   const [password,setPassword]=useState('');
   //CONTEXTOS
   const {login}=useContext(usermanage);
 
+  const envia=useNavigate();
 
-  const handleSubmit=()=>{
+  //FUNCION PARA INICIAR SESSION
+  const handleSubmit=async(e)=>{
    
     try {
+
+      e.preventDefault();
       //HACIENDO LA PETICION PARA COMPARAR EL USUARIO
-      const peticion=axios.post('');
+      const peticion=await axios.post(ipPeticiones+"User/validate",{
+        username,
+        password});
 
+        login(username,peticion.data.token,peticion.data.token)
 
+        envia("/Dashboard");
 
     } catch (error) {
-      
+
+      console.log(error.response.data);
     }
 
   }
@@ -53,7 +63,7 @@ export default function Login() {
 
               </Form.Group>
 
-              <button className='botones' type="submit">Entrar</button>
+              <button className='botones' type="submit" onClick={handleSubmit}>Entrar</button>
 
             </Form>
 
