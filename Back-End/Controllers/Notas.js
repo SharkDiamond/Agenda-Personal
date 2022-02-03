@@ -1,24 +1,22 @@
-const Nota=require("../Models/NotasCalendario");
+const Nota=require("../Models/NotasCalendario.js");
 
 //CREAR NOTAS
 const createNote=async(req,res)=>{
 
     try {
-
-        const {Fecha,Nota,UsuarioAsignado}=req.body;
-        
-        const date=new Date();
-        
-        const createN=new Nota({Fecha,Nota,UsuarioAsignado});
-
-        console.log(createN);
-        
+        //SACANDO LA DATA DEL BODY
+        const {...data}=req.body;
+        //CREANDO UNA NUEVA PROPIEDAD
+        data.UsuarioAsignado=req.userId;
+        //CREANDO LA NOTA
+        const createN=new Nota(data);
+        //GUARDANDO LA NOTA
         await createN.save();
-
+        //RESPONDIENDO LA NOTA
         res.json(`Nota Creada`).end();
 
     } catch (error) {
-        console.log(error.message);
+       
         res.status(500).json(error.message).end();
 
     }
@@ -30,10 +28,10 @@ const createNote=async(req,res)=>{
 const getNotes=async(req,res)=>{
 
     try {
-
-        const {Fecha,UsuarioAsignado,all}=req.body;
+        
+        const {Fecha,all}=req.body;
         //SI SE QUIERE BUSCAR TODAS LAS NOTAS O SOLO UNA DETERMINADAS
-        const condition= all ? {UsuarioAsignado} : {Fecha,UsuarioAsignado};
+        const condition= all ? {UsuarioAsignado:req.userId} : {Fecha,UsuarioAsignado:req.userId};
         //BUSCANDO LAS NOTAS QUE COINCIDAN CON LA CONDICION INDICADA
         const notas=await Nota.find(condition);
         //EN DADO CASO NO HAYA NOTAS
@@ -42,6 +40,7 @@ const getNotes=async(req,res)=>{
         res.json(notas).end();
 
     } catch (error) {
+        
         res.status(500).json(error.message).end();
     }
 

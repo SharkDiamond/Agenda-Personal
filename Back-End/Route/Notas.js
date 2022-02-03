@@ -6,7 +6,7 @@ const verificaToken = require("../Midlewares/verify-jwt");
 
 const route=Router();
 //CREAR NOTA
-route.post('/CreateNote',[verificaToken,check("texto","el texto no puede venir vacio!").not().isEmpty(),
+route.post('/CreateNote',[verificaToken,check("Nota","el texto no puede venir vacio!").not().isEmpty(),
                            check("Fecha","La fecha tiene que ser un valor de tipo date!").isDate(),
                            validationExpress,
 ],createNote);
@@ -15,7 +15,7 @@ route.delete('/DeleteNote',[verificaToken,check("id","El id enviado no es valido
 //ACTUALIZAR NOTA
 route.put('/UpdateNote',[verificaToken,check("id","El id enviado no es valido!").isMongoId(),validationExpress],()=>{});
 //OBTENER NOTAS
-route.get('/getNotes',[verificaToken,check('Fecha','La fecha enviada no es valido!').isDate(),validationExpress],getNotes);
+route.post('/getNotes',[verificaToken,check('Fecha','La fecha enviada no es valido!').isDate(),validationExpress],getNotes);
 
 
 module.exports=route;

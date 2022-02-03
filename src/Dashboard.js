@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect,useContext } from 'react';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -7,10 +7,23 @@ import Noticias from './ColumnasComponents/ColumnaLeft/Noticias';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { toast } from 'react-toastify';
+import usermanage from './Contexto/User/userContext';
+import ColumnaCentral from './Columnas/ColumnaCentral';
 
 
 export default function Dashboard() {
   
+  //USANDO EL CONTEXTO DE USUARIO
+  const {usuario}=useContext(usermanage);
+  //CICLO DE VIDA DE MONTAJE
+  useEffect(()=>{
+    //ENVIANDO UNA NOTIFICACION DE BIENVENIEDA
+    toast.success('Bienvenido '+usuario);
+
+  },[]);
+
+
   return (
     
     <Container className="p-3  bg-dark " fluid={true}>
@@ -43,7 +56,7 @@ export default function Dashboard() {
           
           </Col>
         {/* SEGUNDA COLUMNA DE CONTENIDO  */}
-        <Col className="p-4 border"  xs="12" md="6" lg="4"><h1 className='text-white'>Columna 2</h1></Col>
+        <ColumnaCentral/>
         {/* TERCERA  COLUMNA DE CONTENIDO  */}
         <Col className='border'><h1 className='text-white'>Columna 3</h1></Col>
     

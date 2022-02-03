@@ -9,6 +9,8 @@ const noUserExist=async(req,res,next)=>{
     const userFind=await Usuario.findOne({username});
     //EN DADO CASO DE QUE NO SE ENCUENTRE
     if (!userFind) return res.status(400).json(`No existe el usuario ${username}`).end();
+    
+    console.log(userFind);
     //PASANDO EL ENCRIPTADO
     req.passwordDB=userFind.password;
     //PASANDO EL ID

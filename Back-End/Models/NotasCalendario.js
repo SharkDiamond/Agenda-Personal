@@ -1,6 +1,6 @@
 const {Schema,model}=require("mongoose");
 
-const notasSchema=new Schema({
+const notasSchema= Schema({
    
     Fecha:{
 

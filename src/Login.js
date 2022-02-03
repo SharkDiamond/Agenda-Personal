@@ -6,6 +6,9 @@ import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import "./App.css"
 import ipPeticiones from './Ip';
+import {toast} from "react-toastify";
+
+
 export default function Login() {
 
   //ESTADOS
@@ -32,8 +35,8 @@ export default function Login() {
         envia("/Dashboard");
 
     } catch (error) {
-
-      console.log(error.response.data);
+      toast.warning(error.response.data)
+     // alert(error.response.data);
     }
 
   }
