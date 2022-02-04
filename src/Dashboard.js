@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Calendar from "react-calendar";
 import Noticias from './ColumnasComponents/ColumnaLeft/Noticias';
-
+import CompromisosProvider from './Contexto/Compromisos/compromisosProvider';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { toast } from 'react-toastify';
@@ -13,7 +13,7 @@ import ColumnaCentral from './Columnas/ColumnaCentral';
 
 
 export default function Dashboard() {
-  
+
   //USANDO EL CONTEXTO DE USUARIO
   const {usuario}=useContext(usermanage);
   //CICLO DE VIDA DE MONTAJE
@@ -25,7 +25,7 @@ export default function Dashboard() {
 
 
   return (
-    
+<CompromisosProvider>
     <Container className="p-3  bg-dark " fluid={true}>
           {/* FILA BARRA*/}
           <Row className='rounded-top barra '>
@@ -63,5 +63,7 @@ export default function Dashboard() {
         </Row>
     
         </Container>
+
+</CompromisosProvider>    
     );
 }
