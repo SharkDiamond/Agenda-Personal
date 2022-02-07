@@ -8,4 +8,15 @@ const userExist=async(username)=>{
 
 }
 
-module.exports={userExist};
+
+const userForUsernameGet=async(username)=>{
+
+    const user=await Usuario.findOne({username});
+
+    return user;
+
+}
+
+
+
+module.exports={userExist,userForUsernameGet};

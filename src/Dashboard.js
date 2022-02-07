@@ -1,18 +1,17 @@
-import React, { useEffect,useContext } from 'react';
+import React, { useEffect,useContext} from 'react';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Calendar from "react-calendar";
-import Noticias from './ColumnasComponents/ColumnaLeft/Noticias';
 import CompromisosProvider from './Contexto/Compromisos/compromisosProvider';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { toast } from 'react-toastify';
 import usermanage from './Contexto/User/userContext';
 import ColumnaCentral from './Columnas/ColumnaCentral';
-
+import ColumnaIzquierda from './Columnas/ColumnaIzquierda';
 
 export default function Dashboard() {
+
 
   //USANDO EL CONTEXTO DE USUARIO
   const {usuario}=useContext(usermanage);
@@ -22,6 +21,8 @@ export default function Dashboard() {
     toast.success('Bienvenido '+usuario);
 
   },[]);
+
+ 
 
 
   return (
@@ -38,23 +39,8 @@ export default function Dashboard() {
     
         {/* FILA CONTENIDO*/}
         <Row className="filaContenido rounded-bottom ">
-            {/* PRIMERA COLUMNA DE CONTENIDO  */}
-            <Col className=' ' xs="12" md="6" lg="4">
-        
-            {/* CALENDARIO*/}
-            <Col className=' p-3 ' xs lg="12">
-            <Calendar className={"react-calendar react-calendar__month-view__days__day--weekend react-calendar__tile"}/>
-            </Col>
-    
-          {/* NOTICIAS*/}
-          <Col  className='' xs lg="12">
-    
-          <Noticias/>
-    
-          </Col>
-    
-          
-          </Col>
+        {/* PRIMERA COLUMNA DE CONTENIDO  */}
+        <ColumnaIzquierda/>
         {/* SEGUNDA COLUMNA DE CONTENIDO  */}
         <ColumnaCentral/>
         {/* TERCERA  COLUMNA DE CONTENIDO  */}
