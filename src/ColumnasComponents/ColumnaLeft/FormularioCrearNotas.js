@@ -20,7 +20,8 @@ export default function FormularioCrearNotas({Fecha,Back}) {
         const Peticion= await axios.post(`${ipPeticiones}Note/CreateNote`,{
 
             Nota,
-            Fecha:Fecha.split('T')[0]
+            Fecha:Fecha.split('T')[0],
+            all:false
 
         },{
 

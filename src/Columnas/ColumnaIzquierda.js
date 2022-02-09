@@ -35,16 +35,16 @@ export default function ColumnaIzquierda() {
     }
 
 
-    return  <Col className=' ' xs="12" md="6" lg="4">
+    return  <Col className='' xs="12" md="6" lg="4">
 
             {/* CALENDARIO*/}
-            <Col className=' p-3 ' xs lg="12">
+            <Col className=' p-3 mb-2' xs lg="12">
 
             {mostrar ? <Calendar  className={"animacionFormulario react-calendar react-calendar__month-view__days__day--weekend react-calendar__tile"}  onChange={(e)=>setfechaElegida(e)} value={fechaElegida}/> 
             : <FormularioCrearNotas Fecha={fechaElegida.toISOString()} Back={backCalendary}/> }
                 
             </Col>
-    
+
             {/* NOTICIAS*/}
             <Col  className='' xs lg="12">
                 <Noticias/>
