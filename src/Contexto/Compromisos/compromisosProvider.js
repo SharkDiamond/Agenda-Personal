@@ -4,6 +4,7 @@ import invalideJWT from '../../Helpers/JwtInvalid';
 import { useNavigate } from 'react-router-dom';
 import compromisos from './compromisoContext';
 import ipPeticiones from '../../Ip';
+import {DateTime} from "luxon";
 import axios from 'axios';
 
 
@@ -42,9 +43,9 @@ export default function CompromisosProvider(props) {
     const pedirDatos=async()=>{
 
         try {
-            
-            let Fecha=new Date().toISOString().split('T')[0];
-            
+            //SACANDO LA FECHA
+            let Fecha=DateTime.now().toString().split('T')[0];
+            //
             const Peticion=await axios.post(`${ipPeticiones}Note/getNotes`,{ Fecha }, { "headers":{
 
                 "acceso":sessionStorage.getItem('acceso')

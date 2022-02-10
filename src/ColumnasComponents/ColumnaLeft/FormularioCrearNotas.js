@@ -1,26 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import axios from 'axios';
 import ipPeticiones from '../../Ip';
 import { toast } from 'react-toastify';
+import { DateTime } from 'luxon';
+import compromisos from '../../Contexto/Compromisos/compromisoContext';
 import './CL.css'
 
 export default function FormularioCrearNotas({Fecha,Back}) {
 
     //ESTADOS
     const [Nota,setNota]=useState('');
+    //PARA ACTUALIZAR LA LISTA DE USUARIOS
+    const {pedirDatos}=useContext(compromisos);
 
-   const createNota=async(e)=>{
+    const createNota=async(e)=>{
     //EVITANDO QUE SE RENDERICE LA PAGINA
     e.preventDefault();
 
     try {
         
+        //SACANDO LA FECHA
+        let Fecha=DateTime.now().toString().split('T')[0];
         //HACIENDO LA PETICION
         const Peticion= await axios.post(`${ipPeticiones}Note/CreateNote`,{
 
             Nota,
-            Fecha:Fecha.split('T')[0],
+            Fecha,
             all:false
 
         },{
@@ -34,6 +40,9 @@ export default function FormularioCrearNotas({Fecha,Back}) {
         });
 
         toast.success(Peticion.data);
+
+        await pedirDatos();
+
 
     } catch (error) {
         
