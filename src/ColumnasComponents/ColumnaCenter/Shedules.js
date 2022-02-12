@@ -5,7 +5,7 @@ import invalideJWT from '../../Helpers/JwtInvalid';
 import { DateTime } from 'luxon'; 
 import { Accordion } from 'react-bootstrap';
 import axios from 'axios';
-
+import "../ColumnaLeft/CL.css";
 export default function Shedules() {
     //USANDO EL ESTADO GLOBAL DE LOS COMPROMISOS
     const {compromisosData,pedirDatos}=useContext(compromisos);
@@ -24,7 +24,7 @@ export default function Shedules() {
 
     },[]);
 
-  return(<div>
+  return(<div className='scroll-notas p-3'>
 <Accordion defaultActiveKey="0">
     {
     //RENDERIZADO CONDICIONAL    
@@ -41,9 +41,6 @@ export default function Shedules() {
     )
     })
     }
-
-
-
 
 
   <br/>
