@@ -45,7 +45,7 @@ export default function CompromisosProvider(props) {
         try {
             //SACANDO LA FECHA
             let Fecha=DateTime.now().toString().split('T')[0];
-            //
+            
             const Peticion=await axios.post(`${ipPeticiones}Note/getNotes`,{ Fecha }, { "headers":{
 
                 "acceso":sessionStorage.getItem('acceso')
@@ -54,6 +54,9 @@ export default function CompromisosProvider(props) {
             }
 
             );
+
+            console.log(Peticion.data);
+
             //SI HAY COMPROMISOS PARA EL DIA ACTUAL
             if (Peticion.data!='No hay notas para esa fecha') setCompromisosData(Peticion.data);
 

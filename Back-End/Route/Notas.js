@@ -6,7 +6,7 @@ const verificaToken = require("../Midlewares/verify-jwt");
 
 const route=Router();
 //CREAR NOTA
-route.post('/CreateNote',[verificaToken,check("Nota","el texto no puede venir vacio!").not().isEmpty(),
+route.post('/CreateNote',[verificaToken,check('Titulo','El titulo no puede venir vacio').not().isEmpty(),check("Nota","el texto no puede venir vacio!").not().isEmpty(),
                            check("Fecha","La fecha tiene que ser un valor de tipo date!").isDate(),
                            validationExpress,
 ],createNote);

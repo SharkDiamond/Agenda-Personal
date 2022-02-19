@@ -26,7 +26,7 @@
       transform-origin: 0% 0%;
     }
   }
-
+ 
 
 .scroll-notas{
 
@@ -39,6 +39,26 @@ scroll-behavior: smooth;
 }
 
 
+h4{
+
+color:#FDEBCD;  
+font-weight: bold;
+
+}
+
+.scroll-notas::-webkit-scrollbar{
+  width: 10px;
+background-color:  #1E252F;
+
+}
+
+.scroll-notas::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  height: 10vh;
+  background-color: orange;
+
+
+}
 
 
   

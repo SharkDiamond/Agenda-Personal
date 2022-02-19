@@ -8,6 +8,10 @@ const notasSchema= Schema({
         require:true
 
     },
+    Titulo:{
+        type:String,
+        require:true
+    },
     Nota:{
 
         type:String,

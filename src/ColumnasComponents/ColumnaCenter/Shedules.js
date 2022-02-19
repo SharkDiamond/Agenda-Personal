@@ -32,7 +32,7 @@ export default function Shedules() {
       return (
       <Accordion.Item eventKey={index} className='mb-2' alwaysOpen>
 
-      <Accordion.Header className='text-center'>Nota {index+1}</Accordion.Header>
+      <Accordion.Header className='text-center'>{element.Titulo}</Accordion.Header>
         <Accordion.Body >
           {element.Nota}
         </Accordion.Body>
