@@ -24,19 +24,20 @@ export default function Shedules() {
 
     },[]);
 
-  return(<div className='scroll-notas p-3'>
-<Accordion defaultActiveKey="0">
-    {
-    //RENDERIZADO CONDICIONAL    
-    compromisosData.length==0 ? <h4 className='text-danger text-center'>No hay compromisos para el dia hoy</h4> : compromisosData.map((element,index)=>{
-      return (
-      <Accordion.Item eventKey={index} className='mb-2' alwaysOpen>
+  return(<div className='scroll-notas p-3 border rounded-3'>
+            <Accordion defaultActiveKey="0">
+                {
+                  //RENDERIZADO CONDICIONAL    
+                  compromisosData.length==0 ? <h4 className='text-danger text-center'>No hay compromisos para el dia hoy</h4> : compromisosData.map((element,index)=>{
+                    return (
+                      <Accordion.Item eventKey={index} className='mb-2' alwaysOpen>
 
-      <Accordion.Header className='text-center'>{element.Titulo}</Accordion.Header>
-        <Accordion.Body >
-          {element.Nota}
-        </Accordion.Body>
-    </Accordion.Item>
+                      <Accordion.Header className='text-center '><span className='fw-bold'>{element.Titulo}</span></Accordion.Header>
+                      <Accordion.Body >
+                      {element.Nota}
+                      </Accordion.Body>
+
+                      </Accordion.Item>
 
     )
     })

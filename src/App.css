@@ -1,6 +1,9 @@
 
   .filaContenido{
-   background-color: #1e252f;
+    background: #141E30;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
     min-height: 100vh;
 
   }
@@ -12,6 +15,14 @@
 
   }
 
+
+  .tituloNoticas{
+
+
+    color:#FDEBCD;
+    
+    font-weight: bold;
+  }
 
   .barra{
 
@@ -79,14 +90,14 @@ background-color: #1D2430;
 }
 .tamanoCalendario{
 
-  min-height: 35vh;
+  
 
 }
 
 
 .scroll {
-  height: 55vh;
-	
+  height: 47.8vh;
+background-color: #C4C7CC;
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
@@ -99,11 +110,20 @@ background-color: #1D2430;
 
 }
 
+
+
+
 .scroll::-webkit-scrollbar-thumb{
   border-radius: 10px;
   height: 10vh;
   background-color: orange;
 
+
+}
+
+.margenNoticias{
+
+margin-top: 2.4vh;
 
 }
 

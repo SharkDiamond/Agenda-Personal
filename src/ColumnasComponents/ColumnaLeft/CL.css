@@ -29,8 +29,13 @@
  
 
 .scroll-notas{
-
-height: 35vh;
+  background: rgba( 255, 255, 255, 0.75 );
+ 
+  backdrop-filter: blur( 20px );
+  -webkit-backdrop-filter: blur( 20px );
+  
+  border: 4px solid rgba( 255, 255, 255, 0.18 );
+height: 41.1vh;
 
 overflow-y: scroll;
 scroll-behavior: smooth;
@@ -48,15 +53,15 @@ font-weight: bold;
 
 .scroll-notas::-webkit-scrollbar{
   width: 10px;
-background-color:  #1E252F;
-
+  border-radius: 10px;
+  background: #C6C8CB;
 }
 
 .scroll-notas::-webkit-scrollbar-thumb{
   border-radius: 10px;
   height: 10vh;
-  background-color: orange;
-
+  background-color: #1E252F;
+  
 
 }
 

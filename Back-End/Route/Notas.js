@@ -1,7 +1,7 @@
 const {check}=require("express-validator");
 const {Router}=require("express");
 const { validationExpress } = require("../Helpers/ValidationExpress");
-const { createNote, getNotes } = require("../Controllers/Notas");
+const { createNote, getNotes,getAmounthNotes } = require("../Controllers/Notas");
 const verificaToken = require("../Midlewares/verify-jwt");
 
 const route=Router();
@@ -16,6 +16,8 @@ route.delete('/DeleteNote',[verificaToken,check("id","El id enviado no es valido
 route.put('/UpdateNote',[verificaToken,check("id","El id enviado no es valido!").isMongoId(),validationExpress],()=>{});
 //OBTENER NOTAS
 route.post('/getNotes',[verificaToken,check('Fecha','La fecha enviada no es valido!').isDate(),validationExpress],getNotes);
+
+route.get('/AmounthNotes',verificaToken,getAmounthNotes);
 
 
 module.exports=route;

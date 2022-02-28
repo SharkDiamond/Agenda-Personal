@@ -1,4 +1,4 @@
-import {React,useEffect,useState} from 'react';
+import React,{useEffect,useState} from 'react';
 import Col from "react-bootstrap/Col";
 import Noticias from '../ColumnasComponents/ColumnaLeft/Noticias';
 import Calendar from 'react-calendar';
@@ -34,8 +34,7 @@ export default function ColumnaIzquierda() {
 
     }
 
-
-    return  <Col className='' xs="12" md="6" lg="4">
+    return(  <Col >
 
             {/* CALENDARIO*/}
             <Col className=' p-3 mb-2' xs lg="12">
@@ -46,11 +45,13 @@ export default function ColumnaIzquierda() {
             </Col>
 
             {/* NOTICIAS*/}
-            <Col  className='' xs lg="12">
+            <Col  className='margenNoticias p-3' xs lg="12">
                 <Noticias/>
             </Col>
 
-        </Col>;
+        </Col>
+);
+       
 
 
 

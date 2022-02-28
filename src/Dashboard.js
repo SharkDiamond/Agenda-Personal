@@ -27,24 +27,16 @@ export default function Dashboard() {
 
   return (
 <CompromisosProvider>
-    <Container className="p-3  bg-dark " fluid={true}>
-          {/* FILA BARRA*/}
-          <Row className='rounded-top barra '>
-    
-            <Col className=''><h1 className='text-danger'>Gabriel</h1></Col>
-            <Col className=''><h1>Busqueda</h1></Col>
-            <Col className=''><h1>Iconos</h1></Col>
-    
-          </Row> 
+    <Container className="p-5  bg-dark " fluid={true}>
+
     
         {/* FILA CONTENIDO*/}
-        <Row className="filaContenido rounded-bottom ">
+        <Row className="filaContenido rounded p-3">
         {/* PRIMERA COLUMNA DE CONTENIDO  */}
         <ColumnaIzquierda/>
         {/* SEGUNDA COLUMNA DE CONTENIDO  */}
         <ColumnaCentral/>
-        {/* TERCERA  COLUMNA DE CONTENIDO  */}
-        <Col className='border'><h1 className='text-white'>Columna 3</h1></Col>
+
     
         </Row>
     

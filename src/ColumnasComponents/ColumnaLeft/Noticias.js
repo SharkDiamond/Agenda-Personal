@@ -1,4 +1,4 @@
-import {React,useContext,useEffect,useState,useRef} from 'react';
+import React,{useContext,useEffect,useState,useRef} from 'react';
 import themas from '../../Contexto/Temas.js/ContextThema';
 import axios from "axios";
 import {Card,Button,Container,Nav,Navbar} from "react-bootstrap";
@@ -58,13 +58,14 @@ export default function Noticias() {
         if (e==="Titulo") {
 
           Menu.current.className="d-none";
-      
-           Titulo.current.className="text-white"
+          
+           Titulo.current.className="tituloNoticas mb-4";
+
         }
       
         else if(e==='Menu'){
 
-          Menu.current.className="";
+          Menu.current.className="mb-1";
       
           Titulo.current.className="d-none"
 
@@ -75,32 +76,32 @@ export default function Noticias() {
    }
 
     return (
-        <div align="center">
-              <h1 className='text-white ' ref={Titulo} onMouseEnter={()=>handleChangeTitle('Menu')}>NOTICIAS</h1>
+        <div align="center ">
+              <h3 className=' mb-4 tituloNoticas'  ref={Titulo} onMouseEnter={()=>handleChangeTitle('Menu')}>Noticias</h3>
 
-     <div className='d-none' ref={Menu} onMouseOut={()=>handleChangeTitle('Titulo')}>     
-<Navbar className='animado'>
-    <Container >
-    <Nav className="me-auto letraSize" >
-    <Nav.Link onClick={e=>setCategory('Nacionales')}  onMouseEnter={()=>handleChangeTitle('Menu')} style={{ color:"blanchedalmond", "font-weight":"bold"}}  href="#home" >Nacionales</Nav.Link>
-      <Nav.Link onClick={e=>setCategory('Fortune')}  onMouseEnter={()=>handleChangeTitle('Menu')} style={{ color:"blanchedalmond", "font-weight":"bold"}} href="#home">Economia</Nav.Link>
-      <Nav.Link onClick={e=>setCategory('ars-technica')} onMouseEnter={()=>handleChangeTitle('Menu')} style={{ color:"blanchedalmond", "font-weight":"bold"}} href="#features">Tecnologia</Nav.Link>
-      <Nav.Link onClick={e=>setCategory('bbc-sport')} onMouseEnter={()=>handleChangeTitle('Menu')} style={{ color:"blanchedalmond", "font-weight":"bold"}} href="#pricing">Deportes</Nav.Link>
-    </Nav>
-    </Container>
-  </Navbar>
+     <div className='d-none ' ref={Menu} onMouseOut={()=>handleChangeTitle('Titulo')}>     
+        <Navbar className='animado'>
+          <Container >
+            <Nav className="me-auto letraSize" >
+              <Nav.Link onClick={e=>setCategory('Nacionales')}  onMouseEnter={()=>handleChangeTitle('Menu')} style={{ color:"blanchedalmond", "font-weight":"bold"}}  href="#home" >Nacionales</Nav.Link>
+              <Nav.Link onClick={e=>setCategory('Fortune')}  onMouseEnter={()=>handleChangeTitle('Menu')} style={{ color:"blanchedalmond", "font-weight":"bold"}} href="#home">Economia</Nav.Link>
+              <Nav.Link onClick={e=>setCategory('ars-technica')} onMouseEnter={()=>handleChangeTitle('Menu')} style={{ color:"blanchedalmond", "font-weight":"bold"}} href="#features">Tecnologia</Nav.Link>
+             <Nav.Link onClick={e=>setCategory('bbc-sport')} onMouseEnter={()=>handleChangeTitle('Menu')} style={{ color:"blanchedalmond", "font-weight":"bold"}} href="#pricing">Deportes</Nav.Link>
+            </Nav>
+          </Container>
+        </Navbar>
      </div>   
 
-            <div className='scroll '>
+            <div className='scroll   ps-4 pt-2 rounded-2'>
            {
             datosNoticias.map(element => 
-        <Card style={{ width: '100%'}} className='mb-2 prueba '>
+        <Card style={{ width: '95%'}} className='mb-2 prueba '>
         <Card.Img variant="top" src={element.urlToImage} />
         <Card.Body className={tema}>
           <Card.Title>{element.title}</Card.Title>
           <Card.Text>{element.description}</Card.Text>
           <Button variant="primary" href={element.url} target="_blank">Leer Mas</Button>
-          <Button onClick={()=>setTema("bg-danger ")}>CHANGE</Button>
+          
         </Card.Body>
       </Card>
       

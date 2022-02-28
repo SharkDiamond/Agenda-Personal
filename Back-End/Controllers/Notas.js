@@ -47,7 +47,30 @@ const getNotes=async(req,res)=>{
 
 
 }
+
+const getAmounthNotes=async(req,res)=>{
+
+    try {
+ 
+        const cantidadHoy=Nota.find({}).count();
+
+        const cantidadMes= Nota.find({}).count();
+       
+        const cantidadAño= Nota.find({}).count();
+
+        const [today,month,year]=await Promise.all([cantidadHoy,cantidadMes,cantidadAño]);
+
+        res.json({today,month,year}).end();
+        
+    } catch (error) {
+        res.status(500).json(error).end();
+    }
+
+
+
+}
+
 //EXPORTANDO LAS FUNCIONES
-module.exports={createNote,getNotes};
+module.exports={createNote,getNotes, getAmounthNotes};
 
 
