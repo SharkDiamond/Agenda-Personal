@@ -73,7 +73,7 @@ export default function AmountCompromisos() {
   };
 
   return (
-    <div className='mt-4 bg-white p-4 border rounded'>
+    <div className='mt-3 bg-white p-4 border rounded'>
       
       <Bar  options={options} data={data} />
 

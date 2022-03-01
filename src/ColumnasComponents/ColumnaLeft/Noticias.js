@@ -59,7 +59,7 @@ export default function Noticias() {
 
           Menu.current.className="d-none";
           
-           Titulo.current.className="tituloNoticas mb-4";
+           Titulo.current.className="tituloNoticas mb-3";
 
         }
       
@@ -77,7 +77,7 @@ export default function Noticias() {
 
     return (
         <div align="center ">
-              <h3 className=' mb-4 tituloNoticas'  ref={Titulo} onMouseEnter={()=>handleChangeTitle('Menu')}>Noticias</h3>
+              <h3 className=' mb-3 tituloNoticas'  ref={Titulo} onMouseEnter={()=>handleChangeTitle('Menu')}>Noticias</h3>
 
      <div className='d-none ' ref={Menu} onMouseOut={()=>handleChangeTitle('Titulo')}>     
         <Navbar className='animado'>

@@ -1,12 +1,14 @@
 import React,{useEffect,useState} from 'react';
 import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import Noticias from '../ColumnasComponents/ColumnaLeft/Noticias';
 import Calendar from 'react-calendar';
 import '../App.css';
 import FormularioCrearNotas from '../ColumnasComponents/ColumnaLeft/FormularioCrearNotas';
 import "../ColumnasComponents/ColumnaLeft/CL.css";
+import Shedules from '../ColumnasComponents/ColumnaCenter/Shedules';
 
-export default function ColumnaIzquierda() {
+export default function PrimeraFila() {
     
     //ESTADOS 
     const [fechaElegida,setfechaElegida]=useState(new Date());
@@ -34,22 +36,23 @@ export default function ColumnaIzquierda() {
 
     }
 
-    return(  <Col >
+    return(  <Row >
 
             {/* CALENDARIO*/}
-            <Col className=' p-3 mb-2' xs lg="12">
-
+            <Col className=' pe-5 ps-4 pt-3  mb-2' xs lg="6">
+            <h3 className='text-center mb-3' style={ {color:"#FDEBCD","font-weight": "bold"} }>Calendario</h3>
             {mostrar ? <Calendar  className={"animacionFormulario react-calendar react-calendar__month-view__days__day--weekend react-calendar__tile"}  onChange={(e)=>setfechaElegida(e)} value={fechaElegida}/> 
             : <FormularioCrearNotas Fecha={fechaElegida.toISOString()} Back={backCalendary}/> }
                 
             </Col>
 
             {/* NOTICIAS*/}
-            <Col  className='margenNoticias p-3' xs lg="12">
-                <Noticias/>
+            <Col  className='margenNoticias pe-5 pt-3' xs lg="6">
+            <h3 className='text-center mb-3 ' style={ {color:"#FDEBCD","font-weight": "bold"} } >Compromisos</h3>
+                <Shedules/>
             </Col>
 
-        </Col>
+        </Row>
 );
        
 

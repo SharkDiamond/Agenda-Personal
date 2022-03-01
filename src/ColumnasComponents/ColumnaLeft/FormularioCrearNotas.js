@@ -63,7 +63,7 @@ export default function FormularioCrearNotas({Fecha,Back}) {
         <h4 className='mb-3'>Titulo</h4>
         <Form.Control  type="field" rows={9} onChange={e=>setTitulo(e.target.value)} value={Titulo} required/>
         <h4 className='mb-3 mt-2'>Comentario</h4>
-        <Form.Control  as="textarea" rows={9} onChange={e=>setNota(e.target.value)} value={Nota} required/>
+        <Form.Control  as="textarea" rows={5} onChange={e=>setNota(e.target.value)} value={Nota} required/>
          
         <Button type="submit"  onClick={createNota}    className='text-center mt-3 ' align='center' variant='success' >Crear Nota </Button >
         

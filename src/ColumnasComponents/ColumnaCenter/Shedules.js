@@ -6,6 +6,8 @@ import { DateTime } from 'luxon';
 import { Accordion } from 'react-bootstrap';
 import axios from 'axios';
 import "../ColumnaLeft/CL.css";
+
+
 export default function Shedules() {
     //USANDO EL ESTADO GLOBAL DE LOS COMPROMISOS
     const {compromisosData,pedirDatos}=useContext(compromisos);
@@ -25,6 +27,7 @@ export default function Shedules() {
     },[]);
 
   return(<div className='scroll-notas p-3 border rounded-3'>
+            
             <Accordion defaultActiveKey="0">
                 {
                   //RENDERIZADO CONDICIONAL    

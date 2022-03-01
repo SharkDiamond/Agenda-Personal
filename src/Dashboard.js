@@ -7,8 +7,9 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { toast } from 'react-toastify';
 import usermanage from './Contexto/User/userContext';
-import ColumnaCentral from './Columnas/ColumnaCentral';
-import ColumnaIzquierda from './Columnas/ColumnaIzquierda';
+import PrimeraFila from './Columnas/PrimeraFila';
+import SegundaFila from './Columnas/SegundaFila';
+
 
 export default function Dashboard() {
 
@@ -29,15 +30,13 @@ export default function Dashboard() {
 <CompromisosProvider>
     <Container className="p-5  bg-dark " fluid={true}>
 
-    
-        {/* FILA CONTENIDO*/}
         <Row className="filaContenido rounded p-3">
-        {/* PRIMERA COLUMNA DE CONTENIDO  */}
-        <ColumnaIzquierda/>
-        {/* SEGUNDA COLUMNA DE CONTENIDO  */}
-        <ColumnaCentral/>
-
-    
+            {/* FILA CONTENIDO 1*/}
+              <PrimeraFila/>
+            {/* FILA CONTENIDO 2*/}
+            <Row>
+              <SegundaFila/>
+            </Row>
         </Row>
     
         </Container>
