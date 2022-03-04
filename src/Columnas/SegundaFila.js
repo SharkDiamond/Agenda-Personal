@@ -5,15 +5,15 @@ import Noticias from '../ColumnasComponents/ColumnaLeft/Noticias';
 
 export default function SegundaFila() {
   return (
-    <Row className="pb-3" >
+    <Row  >
     
-    <Col className='ps-4 pe-4' xs="12" md="6" lg="6">
+    <Col className='ps-4 ' xs="12" md="12" lg="6">
     <Noticias/>
     </Col>
 
-   
-    <Col className='ps-4 pe-4' xs="12" md="6" lg="6">
-    <h3 className='text-center' style={ {color:"#FDEBCD","font-weight": "bold"} }>Cantidad De Compromisos</h3>
+    {/*ps-4 pe-4 */}
+    <Col className=' ps-4 pb-3' xs="12" md="12" lg="6">
+    <h3 className='text-center mb-2 mt-2 mt-md-3' style={ {color:"#FDEBCD","font-weight": "bold"} }>Cantidades De Compromisos</h3>
     
     <AmountCompromisos/>
     </Col>

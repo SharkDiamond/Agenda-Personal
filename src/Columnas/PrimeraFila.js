@@ -38,16 +38,16 @@ export default function PrimeraFila() {
 
     return(  <Row >
 
-            {/* CALENDARIO*/}
-            <Col className=' pe-5 ps-4 pt-3  mb-2' xs lg="6">
+            {/* CALENDARIO pe-5 ps-4 */}
+            <Col className=' ps-4 pt-3   mb-2' xs="12" md="6" lg="6" xl="6">
             <h3 className='text-center mb-3' style={ {color:"#FDEBCD","font-weight": "bold"} }>Calendario</h3>
             {mostrar ? <Calendar  className={"animacionFormulario react-calendar react-calendar__month-view__days__day--weekend react-calendar__tile"}  onChange={(e)=>setfechaElegida(e)} value={fechaElegida}/> 
             : <FormularioCrearNotas Fecha={fechaElegida.toISOString()} Back={backCalendary}/> }
                 
             </Col>
 
-            {/* NOTICIAS*/}
-            <Col  className='margenNoticias pe-5 pt-3' xs lg="6">
+            {/* COMPROMISOS*/}
+            <Col  className='ps-4  pt-1 pt-md-3  margenNoticias' xs md="6" lg="6" xl="6">
             <h3 className='text-center mb-3 ' style={ {color:"#FDEBCD","font-weight": "bold"} } >Compromisos</h3>
                 <Shedules/>
             </Col>

@@ -30,13 +30,13 @@ export default function Dashboard() {
 <CompromisosProvider>
     <Container className="p-5  bg-dark " fluid={true}>
 
-        <Row className="filaContenido rounded p-3">
+        <Row className="filaContenido rounded p-xs-5 p-md-4 p-lg-5 p-xl-5">
             {/* FILA CONTENIDO 1*/}
               <PrimeraFila/>
             {/* FILA CONTENIDO 2*/}
-            <Row>
+          
               <SegundaFila/>
-            </Row>
+          
         </Row>
     
         </Container>

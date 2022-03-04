@@ -65,7 +65,7 @@ export default function Noticias() {
       
         else if(e==='Menu'){
 
-          Menu.current.className="mb-1";
+          Menu.current.className="";
       
           Titulo.current.className="d-none"
 
@@ -77,12 +77,12 @@ export default function Noticias() {
 
     return (
         <div align="center ">
-              <h3 className=' mb-3 tituloNoticas'  ref={Titulo} onMouseEnter={()=>handleChangeTitle('Menu')}>Noticias</h3>
+              <h3 className=' mb-2 mt-2 mt-md-3 tituloNoticas'  ref={Titulo} onMouseEnter={()=>handleChangeTitle('Menu')}>Noticias</h3>
 
      <div className='d-none ' ref={Menu} onMouseOut={()=>handleChangeTitle('Titulo')}>     
         <Navbar className='animado'>
           <Container >
-            <Nav className="me-auto letraSize" >
+            <Nav className=" letraSize" >
               <Nav.Link onClick={e=>setCategory('Nacionales')}  onMouseEnter={()=>handleChangeTitle('Menu')} style={{ color:"blanchedalmond", "font-weight":"bold"}}  href="#home" >Nacionales</Nav.Link>
               <Nav.Link onClick={e=>setCategory('Fortune')}  onMouseEnter={()=>handleChangeTitle('Menu')} style={{ color:"blanchedalmond", "font-weight":"bold"}} href="#home">Economia</Nav.Link>
               <Nav.Link onClick={e=>setCategory('ars-technica')} onMouseEnter={()=>handleChangeTitle('Menu')} style={{ color:"blanchedalmond", "font-weight":"bold"}} href="#features">Tecnologia</Nav.Link>
